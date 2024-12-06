@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link type="text/css" rel="stylesheet" href="style.css"/>
+  </head>
+  <body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Identificación de Números Duplicados</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Identificación de Números Duplicados</h1>
+        <p>Identificar números duplicados en una lista.</p>
+        <button onclick="findDuplicates()">Ejecutar</button>
+    </div>
+    <script>
+        function findDuplicates() {
+            let input = prompt("Introduce una lista de números separados por comas (e.g., 4,2,7,2,4):");
+            if (!input) {
+                alert("Entrada vacía. Inténtalo de nuevo.");
+                return;
+            }
+            let numbers = input.split(",").map(num => parseFloat(num.trim()));
+            if (numbers.some(isNaN)) {
+                alert("Por favor, asegúrate de introducir solo números.");
+                return;
+            }
+            let counts = {};
+            let duplicates = [];
+            for (let num of numbers) {
+                counts[num] = (counts[num] || 0) + 1;
+                if (counts[num] === 2) duplicates.push(num);
+            }
+            if (duplicates.length > 0) {
+                alert("Números duplicados: " + duplicates.join(", "));
+            } else {
+                alert("No se encontraron duplicados.");
+            }
+        }
+    </script>
+</body>
+</html>
+
+    <script type="module" src="script.js"></script>
+  </body>
+</html>
